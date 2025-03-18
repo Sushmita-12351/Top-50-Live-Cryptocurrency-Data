@@ -17,6 +17,7 @@ It extracts key metrics: name, symbol, price, market cap, total volume, etc.
 The data is processed using Pandas and stored in a structured format.
 The OpenPyXL library updates the Excel sheet with the latest data.
 The script runs at regular intervals to maintain fresh data.
+
 import requests
 import pandas as pd
 #Function to fetch top 5 cryptocurrencies
