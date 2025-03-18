@@ -18,10 +18,10 @@ The data is processed using Pandas and stored in a structured format.
 The OpenPyXL library updates the Excel sheet with the latest data.
 The script runs at regular intervals to maintain fresh data.
 
-import requests
-import pandas as pd
-#Function to fetch top 5 cryptocurrencies
-def get_top_5_crypto():
+    import requests
+    import pandas as pd
+    #Function to fetch top 5 cryptocurrencies
+    def get_top_5_crypto():
     url = "https://api.coingecko.com/api/v3/coins/markets"
     params = {
         "vs_currency": "USD",          # Prices in USD
@@ -40,11 +40,13 @@ def get_top_5_crypto():
     else:
         print("Error fetching data:", response.status_code)
         return None
-#Fetch and display the top 5 cryptocurrencies
-top_5_crypto = get_top_5_crypto()
-print(top_5_crypto)
-#Function to fetch top 50 cryptocurrencies
-def get_top_50_crypto():
+        
+    #Fetch and display the top 5 cryptocurrencies
+    top_5_crypto = get_top_5_crypto()
+    print(top_5_crypto)
+    
+    #Function to fetch top 50 cryptocurrencies
+    def get_top_50_crypto():
     url = "https://api.coingecko.com/api/v3/coins/markets"
     params = {
         "vs_currency": "usd",          # Prices in USD
@@ -63,16 +65,18 @@ def get_top_50_crypto():
     else:
         print("Error fetching data:", response.status_code)
         return None
-#Fetch and display the top 50 cryptocurrencies
-top_50_crypto = get_top_50_crypto()
-print(top_50_crypto)
-import requests
-import pandas as pd
-from openpyxl import Workbook
-from openpyxl.styles import Font, Alignment
+        
+    #Fetch and display the top 50 cryptocurrencies
+    top_50_crypto = get_top_50_crypto()
+    print(top_50_crypto)
+    
+    import requests
+    import pandas as pd
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, Alignment
 
-# Function to fetch live crypto data
-def fetch_crypto_data():
+    # Function to fetch live crypto data
+    def fetch_crypto_data():
     url = "https://api.coingecko.com/api/v3/coins/markets"
     params = {
         "vs_currency": "usd",
@@ -103,10 +107,10 @@ def fetch_crypto_data():
     print(f"Failed to fetch data. Status Code: {response.status_code}")
     return None
 
-# Function to save data to Excel with formatting
-def save_to_excel(df, filename="Live_Crypto_Data.xlsx"):
-    writer = pd.ExcelWriter(filename, engine="openpyxl")
-    df.to_excel(writer, index=False, sheet_name="Crypto Data")
+    # Function to save data to Excel with formatting
+    def save_to_excel(df, filename="Live_Crypto_Data.xlsx"):
+       writer = pd.ExcelWriter(filename, engine="openpyxl")
+       df.to_excel(writer, index=False, sheet_name="Crypto Data")
 
     # Load the workbook and sheet
     workbook = writer.book
@@ -125,11 +129,11 @@ def save_to_excel(df, filename="Live_Crypto_Data.xlsx"):
 
     writer._save()  # Save Excel file
 
-# Fetch and save data
-crypto_df = fetch_crypto_data()
-if crypto_df is not None:
-    save_to_excel(crypto_df)
-    print("✅ Live crypto data saved in an organized Excel file: Live_Crypto_Data.xlsx")
+    # Fetch and save data
+    crypto_df = fetch_crypto_data()
+    if crypto_df is not None:
+      save_to_excel(crypto_df)
+      print("✅ Live crypto data saved in an organized Excel file: Live_Crypto_Data.xlsx")
     
 📌 Summary of Features
 ✅ Fetches live cryptocurrency data (top 10 by market cap)
